@@ -40,21 +40,21 @@ public class RegistrationDAO implements RegistrationDAOInf {
 		} catch (Exception e) {
 			e.getMessage();
 			return status;
-		}finally {
-			
+		} finally {
+
 			try {
-				if(ps!=null)
-				ps.close();
-			}catch(Exception e) {
+				if (ps != null)
+					ps.close();
+			} catch (Exception e) {
 				e.getMessage();
 			}
 			try {
-				if(con!=null)
-				con.close();
-			}catch(Exception e) {
+				if (con != null)
+					con.close();
+			} catch (Exception e) {
 				e.getMessage();
 			}
-			
+
 		}
 	}
 }
