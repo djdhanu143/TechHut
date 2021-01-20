@@ -66,5 +66,4 @@ public class RegistrationDTO implements Serializable {
 	public void setPassword(String password) {
 		Password = password;
 	}
-
 }
