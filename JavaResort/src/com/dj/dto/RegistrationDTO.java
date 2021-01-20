@@ -10,7 +10,6 @@ public class RegistrationDTO implements Serializable {
 	private String email;
 	private String userName;
 	private String Password;
-
 	
 	public String getEmail() {
 		return email;
