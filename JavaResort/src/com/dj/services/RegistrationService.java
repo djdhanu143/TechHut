@@ -6,7 +6,7 @@ public class RegistrationService implements RegistrationServiceInf {
 
 	@Override
 	public int registerValues(RegistrationDTO dto) {
-
+int i = 0;
 		return 0;
 	}
 
