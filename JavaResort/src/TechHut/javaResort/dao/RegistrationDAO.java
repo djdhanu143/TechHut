@@ -23,7 +23,7 @@ public class RegistrationDAO implements RegistrationDAOInf {
 	}
 
 	public int saveRegistration(RegistrationBO bo) {
-		int status = 0;
+		int status = 1;
 		try {
 			if (bo != null) {
 				ps.setString(1, bo.getfName());
@@ -37,7 +37,7 @@ public class RegistrationDAO implements RegistrationDAOInf {
 				status = ps.executeUpdate();
 				return status;
 			}
-			return 0;
+			return status;
 		} catch (Exception e) {
 			e.getMessage();
 			return status;

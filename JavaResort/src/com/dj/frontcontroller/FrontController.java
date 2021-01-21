@@ -2,15 +2,12 @@ package com.dj.frontcontroller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.omg.IOP.ServiceContext;
 
 public class FrontController extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException {
@@ -27,8 +24,8 @@ public class FrontController extends HttpServlet {
 		
 //		try {
 			if (registrationReq.equals("submit")) {
-				ServletContext sc = getServletContext();
-				RequestDispatcher rd = sc.getRequestDispatcher("http://localhost:4040/JavaResort/registraionSer");
+				//ServletContext sc = getServletContext();
+				RequestDispatcher rd = request.getRequestDispatcher("/registrationSer");
 				rd.include(request, response);
 			}
 //		} catch (ServletException se) {
