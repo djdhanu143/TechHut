@@ -14,8 +14,7 @@ import com.dj.services.RegistrationService;
 import com.dj.services.RegistrationServiceInf;
 
 public class RegistrationServlet extends HttpServlet {
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = null;
 //		try {
 		out = response.getWriter();
@@ -73,5 +72,10 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 		}
+	}
+
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
 	}
 }
