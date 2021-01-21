@@ -8,6 +8,7 @@ import com.dj.bo.RegistrationBO;
 
 public class RegistrationDAO implements RegistrationDAOInf {
 	static Connection con = null;
+	int i =0;
 	static PreparedStatement ps = null;
 	static String QUERY = "insert into registration_tb values(?,?,?,?,?,?,?)";
 
