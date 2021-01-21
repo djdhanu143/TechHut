@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +14,16 @@ import com.dj.services.RegistrationService;
 import com.dj.services.RegistrationServiceInf;
 
 public class RegistrationServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException  {
+		
 		PrintWriter out = null;
-		try {
+//		try {
 			out = response.getWriter();
-		} catch (IOException e) {
-			e.getMessage();
-		}
+//		} catch (IOException e) {
+//			e.getMessage();
+//		}
+		
+		out.print("reg ser");
 		response.setContentType("text/html");
 		RegistrationDTO dto = new RegistrationDTO();
 		dto.setfName(request.getParameter("fn"));
@@ -45,20 +49,20 @@ public class RegistrationServlet extends HttpServlet {
 			int status = register.registerValues(dto);
 			if (status > 0) {
 				out.print("your registration is successfull");
-				try {
+//				try {
 					RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
 					rd.include(request, response);
-				} catch (Exception e) {
-					e.getMessage();
-				}
+//				} catch (Exception e) {
+//					e.getMessage();
+//				}
 			} else {
 				out.print("your registration has failed try again");
-				try {
+//				try {
 					RequestDispatcher rd = request.getRequestDispatcher("registrationpage.html");
 					rd.include(request, response);
-				} catch (Exception e) {
-					e.getMessage();
-				}
+//				} catch (Exception e) {
+//					e.getMessage();
+//				}
 			}
 
 		}
