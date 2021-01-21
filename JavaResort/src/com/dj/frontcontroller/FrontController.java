@@ -17,7 +17,7 @@ public class FrontController extends HttpServlet {
 		registrationReq = request.getParameter("submit");
 		try {
 			if (registrationReq.equals("submit")) {
-				RequestDispatcher rd = request.getRequestDispatcher("");
+				RequestDispatcher rd = request.getRequestDispatcher("registraionSer");
 				rd.include(request, response);
 			}
 		} catch (ServletException se) {
