@@ -13,6 +13,7 @@ public class FrontController extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException {
 		PrintWriter out = null;
 		String registrationReq = null;
+		String loginrequest=null;
 //		try {
 		out= response.getWriter();
 //		}catch(Exception e){
@@ -21,18 +22,25 @@ public class FrontController extends HttpServlet {
 //		out.print("front");
 		response.setContentType("text/html");
 		registrationReq = request.getParameter("submit");
+		loginrequest=request.getParameter("login");
+		
 		
 //		try {
-			if (registrationReq.equals("submit")) {
+			if (registrationReq.equals("button")) {
 				//ServletContext sc = getServletContext();
 				RequestDispatcher rd = request.getRequestDispatcher("/registrationSer");
 				rd.include(request, response);
+			
 			}
 //		} catch (ServletException se) {
 //			se.printStackTrace();
 //		} catch (IOException ioe) {
 //			ioe.printStackTrace();
 //		}
+			if(loginrequest.contentEquals("login")) {
+				RequestDispatcher rd1=request.getRequestDispatcher("loginSer");
+				rd1.forward(request,response);
+			}
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException {
 		doGet(request, response);

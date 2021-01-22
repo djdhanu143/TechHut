@@ -25,4 +25,15 @@
 		<servlet-name>RegistrationServlet</servlet-name>
 		<url-pattern>/registrationSer</url-pattern>
 	</servlet-mapping>
+	<!-- Login  Servlet -->
+	<servlet>
+	<servlet-name>loginservlet</servlet-name>
+	<servlet-class>com.dj.controllers.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>loginservlet</servlet-name>
+	<url-pattern>/loginSer</url-pattern>
+	
+	</servlet-mapping>
+	
 </web-app>
