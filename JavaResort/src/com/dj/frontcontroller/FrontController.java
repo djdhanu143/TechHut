@@ -26,7 +26,7 @@ public class FrontController extends HttpServlet {
 		
 		
 //		try {
-			if (registrationReq.equals("button")) {
+			if (registrationReq.equals("submit")) {
 				//ServletContext sc = getServletContext();
 				RequestDispatcher rd = request.getRequestDispatcher("/registrationSer");
 				rd.include(request, response);
@@ -37,7 +37,7 @@ public class FrontController extends HttpServlet {
 //		} catch (IOException ioe) {
 //			ioe.printStackTrace();
 //		}
-			if(loginrequest.contentEquals("login")) {
+			else if(loginrequest.contentEquals("button")) {
 				RequestDispatcher rd1=request.getRequestDispatcher("loginSer");
 				rd1.forward(request,response);
 			}
