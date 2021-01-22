@@ -33,7 +33,6 @@
 	<servlet-mapping>
 	<servlet-name>loginservlet</servlet-name>
 	<url-pattern>/loginSer</url-pattern>
-	
 	</servlet-mapping>
 	
 </web-app>

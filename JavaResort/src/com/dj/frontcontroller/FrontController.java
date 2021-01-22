@@ -37,9 +37,9 @@ public class FrontController extends HttpServlet {
 //		} catch (IOException ioe) {
 //			ioe.printStackTrace();
 //		}
-			else if(loginrequest.contentEquals("button")) {
-				RequestDispatcher rd1=request.getRequestDispatcher("loginSer");
-				rd1.forward(request,response);
+			if(loginrequest.equals("login")) {
+				RequestDispatcher rd1=request.getRequestDispatcher("/loginSer");
+				rd1.include(request,response);
 			}
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException {
