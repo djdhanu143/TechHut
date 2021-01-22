@@ -54,7 +54,7 @@ public class RegistrationServlet extends HttpServlet {
 			RegistrationServiceInf register = new RegistrationService();
 			int status = register.registerValues(dto);
 			if (status > 0) {
-				out.print("your registration is successfull");
+				out.print("<h2 style='color:green'>your registration is successfull</h2>");
 //				try {
 				RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
 				rd.include(request, response);
@@ -62,7 +62,7 @@ public class RegistrationServlet extends HttpServlet {
 //					e.getMessage();
 //				}
 			} else {
-				out.print("your registration has failed try again");
+				out.print("<h2>your registration has failed try again</h2>");
 //				try {
 				RequestDispatcher rd = request.getRequestDispatcher("registrationpage.html");
 				rd.include(request, response);
