@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 
 import com.dj.bo.LoginBO;
 
-public class LoginDAO implements LoginDAOInf{
+public class LoginDAO implements LoginDAOInf {
 	static Connection con = null;
 	static PreparedStatement ps = null;
-	static String QUERY = "select command";
+	static String QUERY = "select * from registration_tb where userName = ? && password = ?";
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OralceDriver");
@@ -19,11 +19,18 @@ public class LoginDAO implements LoginDAOInf{
 			e.getMessage();
 		}
 	}
+
 	@Override
-	public int savelogin(LoginBO lbo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public boolean getAthenticationValues(LoginBO bo) {
+		boolean status = true;
+		try {
+			ps.setString(1, bo.getUserName());
+			ps.setString(2, bo.getPassword());
+			status = ps.execute();
+			return status;
+		} catch (Exception e) {
+			return status;
+		}
 	}
-	
 
 }

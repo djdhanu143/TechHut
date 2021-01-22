@@ -10,39 +10,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class FrontController extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = null;
 		String registrationReq = null;
-		String loginrequest=null;
+		String loginrequest = null;
 //		try {
-		out= response.getWriter();
+		out = response.getWriter();
 //		}catch(Exception e){
 //			e.getMessage();
 //		}
 //		out.print("front");
 		response.setContentType("text/html");
 		registrationReq = request.getParameter("submit");
-		loginrequest=request.getParameter("login");
-		
-		
+
+		loginrequest = request.getParameter("button");
 //		try {
+		if (registrationReq != null) {
 			if (registrationReq.equals("submit")) {
-				//ServletContext sc = getServletContext();
+				// ServletContext sc = getServletContext();
 				RequestDispatcher rd = request.getRequestDispatcher("/registrationSer");
 				rd.include(request, response);
-			
+
 			}
+		}
 //		} catch (ServletException se) {
 //			se.printStackTrace();
 //		} catch (IOException ioe) {
 //			ioe.printStackTrace();
 //		}
-			else if(loginrequest.contentEquals("button")) {
-				RequestDispatcher rd1=request.getRequestDispatcher("loginSer");
-				rd1.forward(request,response);
+		if (loginrequest != null) {
+			if (loginrequest.equals("login")) {
+				RequestDispatcher rd1 = request.getRequestDispatcher("loginSer");
+				rd1.forward(request, response);
 			}
+		}
 	}
-	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 }
