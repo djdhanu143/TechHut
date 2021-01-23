@@ -37,7 +37,8 @@
 		<servlet-name>login_servlet</servlet-name>
 		<url-pattern>/loginSer</url-pattern>
 	</servlet-mapping>
-<!-- Home_Servlet -->
+	
+	<!-- Home_Servlet -->
 	<servlet>
 		<servlet-name>home_serv</servlet-name>
 		<servlet-class>com.dj.controllers.HomeServlet</servlet-class>
@@ -46,8 +47,8 @@
 		<servlet-name>home_serv</servlet-name>
 		<url-pattern>/home_ser</url-pattern>
 	</servlet-mapping>
-	
-<!-- 	course_servlet -->
+
+	<!-- course_servlet -->
 	<servlet>
 		<servlet-name>course_serv</servlet-name>
 		<servlet-class>com.dj.controllers.CourseServlet</servlet-class>
@@ -56,8 +57,8 @@
 		<servlet-name>course_serv</servlet-name>
 		<url-pattern>/course_ser</url-pattern>
 	</servlet-mapping>
-	
-<!-- 	contactUs_servlet	 -->
+
+	<!-- contactUs_servlet -->
 	<servlet>
 		<servlet-name>contact_serv</servlet-name>
 		<servlet-class>com.dj.controllers.ContactUsServlet</servlet-class>
