@@ -1,39 +1,42 @@
 package com.dj.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ContactUsServlet
- */
-@WebServlet("/ContactUsServlet")
+//@WebServlet("/ContactUsServlet")
 public class ContactUsServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ContactUsServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = null;
+		HttpSession session = null;
+
+		response.setContentType("text/html");
+		out = response.getWriter();
+		session = request.getSession(false);
+		if (session != null) {
+
+			out.print(
+					"<h1 style='float:left;'>Welcome To <spam style='color:white;'>Tech Hut </spam> Mr/Mrs <spam style='color:yellow';>'"
+							+ session.getAttribute("userName") + "'</spam></h1>");
+			RequestDispatcher rd = request.getRequestDispatcher("contactUs.html");
+			rd.include(request, response);
+		} else {
+			out.print("<h1>your session has expaired login again</h1>");
+			RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
+			rd.include(request, response);
+		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
