@@ -28,27 +28,31 @@ public class LoginServlet extends HttpServlet {
 			out.print("<h2 style='color:red;'>userName should not be empty</h2>");
 			RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
 			rd.include(request, response);
-			
-		}else if (dto.getPassword() == null || dto.getPassword().equals("") || dto.getPassword().length() == 0) {
-				out.print("<h2 style='color:red;'>password should not be empty</h2>");
+
+		} else if (dto.getPassword() == null || dto.getPassword().equals("") || dto.getPassword().length() == 0) {
+			out.print("<h2 style='color:red;'>password should not be empty</h2>");
+			RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
+			rd.include(request, response);
+		} else {
+			LoginService logservice = new LoginService();
+			boolean status = logservice.loginAthentication(dto);
+			if (status) {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("userName", dto.getUserName());
+				out.print(
+						"<h1 style='float:left;'>Welcome To <spam style='color:white;'>Tech Hut </spam> Mr/Mrs <spam style='color:yellow';>'"
+								+ dto.getUserName() + "'</spam></h1>");
+				RequestDispatcher rd = request.getRequestDispatcher("homepage.html");
+				rd.include(request, response);
+			} else {
+				out.print("<h1>You Enter Details Or Wrong</h1>");
 				RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
 				rd.include(request, response);
-			}else {
-				LoginService logservice = new LoginService();
-				boolean status = logservice.loginAthentication(dto);
-				if(status) {
-					HttpSession session = request.getSession(true);
-					out.print("<h1 style='float:left;'>Welcome To <spam style='color:white;'>Tech Hut </spam> Mr/Mrs <spam style='color:yellow';>'"+dto.getUserName()+"'</spam></h1>");
-					RequestDispatcher rd = request.getRequestDispatcher("homepage.html");
-					rd.include(request, response);
-				}else {
-					out.print("<h1>You Enter Details Or Wrong</h1>");
-					RequestDispatcher rd = request.getRequestDispatcher("loginpage.html");
-					rd.include(request, response);
-				}
 			}
+		}
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException  {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 }

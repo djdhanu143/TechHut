@@ -7,7 +7,8 @@
 	<welcome-file-list>
 		<welcome-file>welcomepage.html</welcome-file>
 	</welcome-file-list>
-	<!-- front controller -->
+
+	<!-- Front controller -->
 	<servlet>
 		<servlet-name>frontServlet</servlet-name>
 		<servlet-class>com.dj.frontcontroller.FrontController</servlet-class>
@@ -16,7 +17,8 @@
 		<servlet-name>frontServlet</servlet-name>
 		<url-pattern>/frontCon</url-pattern>
 	</servlet-mapping>
-	<!-- registration servlet -->
+
+	<!-- RegistrationServlet -->
 	<servlet>
 		<servlet-name>RegistrationServlet</servlet-name>
 		<servlet-class>com.dj.controllers.RegistrationServlet</servlet-class>
@@ -25,15 +27,43 @@
 		<servlet-name>RegistrationServlet</servlet-name>
 		<url-pattern>/registrationSer</url-pattern>
 	</servlet-mapping>
-	<!-- Login  Servlet -->
+
+	<!-- login_servlet -->
 	<servlet>
-	<servlet-name>loginservlet</servlet-name>
-	<servlet-class>com.dj.controllers.LoginServlet</servlet-class>
+		<servlet-name>login_servlet</servlet-name>
+		<servlet-class>com.dj.controllers.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	<servlet-name>loginservlet</servlet-name>
-	<url-pattern>/loginSer</url-pattern>
-	
+		<servlet-name>login_servlet</servlet-name>
+		<url-pattern>/loginSer</url-pattern>
+	</servlet-mapping>
+<!-- Home_Servlet -->
+	<servlet>
+		<servlet-name>home_serv</servlet-name>
+		<servlet-class>com.dj.controllers.HomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>home_serv</servlet-name>
+		<url-pattern>/home_ser</url-pattern>
 	</servlet-mapping>
 	
+<!-- 	course_servlet -->
+	<servlet>
+		<servlet-name>course_serv</servlet-name>
+		<servlet-class>com.dj.controllers.CourseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>course_serv</servlet-name>
+		<url-pattern>/course_ser</url-pattern>
+	</servlet-mapping>
+	
+<!-- 	contactUs_servlet	 -->
+	<servlet>
+		<servlet-name>contact_serv</servlet-name>
+		<servlet-class>com.dj.controllers.ContactUsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>contact_serv</servlet-name>
+		<url-pattern>/contact_ser</url-pattern>
+	</servlet-mapping>
 </web-app>
