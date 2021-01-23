@@ -17,7 +17,7 @@ public class ContactUsServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = null;
 		HttpSession session = null;
-
+//s
 		response.setContentType("text/html");
 		out = response.getWriter();
 		session = request.getSession(false);
