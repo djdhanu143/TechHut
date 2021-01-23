@@ -15,9 +15,13 @@ public class LoginService implements LoginServiceInf {
 			LoginBO bo = new LoginBO();
 			bo.setUserName(dto.getUserName());
 			bo.setPassword(dto.getPassword());
-			
+
 			LoginDAOInf logdao = new LoginDAO();
-			status = logdao.getAthenticationValues(bo);
+			try {
+				status = logdao.getAthenticationValues(bo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return status;
 	}

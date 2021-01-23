@@ -38,7 +38,13 @@ public class RegistrationServlet extends HttpServlet {
 			out.print("<h2 style='color:red;'>secondName should not be empty</h2>");
 			RequestDispatcher rd = request.getRequestDispatcher("registrationpage.html");
 			rd.include(request, response);
-		} else if (dto.getUserName() == null || dto.getUserName().equals("") || dto.getUserName().length() == 0) {
+		}
+//			else if(dto.getPhone()<10) {
+//				out.print("<h2 style='color:red;'>enter10 digits phone num</h2>");
+//				RequestDispatcher rd = request.getRequestDispatcher("registrationpage.html");
+//				rd.include(request, response);
+//			}
+		 else if (dto.getUserName() == null || dto.getUserName().equals("") || dto.getUserName().length() == 0) {
 			out.print("<h2 style='color:red;'>userName should not be empty</h2>");
 			RequestDispatcher rd = request.getRequestDispatcher("registrationpage.html");
 			rd.include(request, response);

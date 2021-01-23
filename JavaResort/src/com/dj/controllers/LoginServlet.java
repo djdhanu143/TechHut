@@ -18,8 +18,10 @@ import oracle.net.ns.SessionAtts;
 
 public class LoginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
+		
 		PrintWriter out = null;
+		
+		response.setContentType("text/html");
 		out = response.getWriter();
 		LoginDTO dto = new LoginDTO();
 		dto.setUserName(request.getParameter("UN"));
@@ -35,7 +37,8 @@ public class LoginServlet extends HttpServlet {
 			rd.include(request, response);
 		} else {
 			LoginService logservice = new LoginService();
-			boolean status = logservice.loginAthentication(dto);
+			boolean status = false;
+			status = logservice.loginAthentication(dto);
 			if (status) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("userName", dto.getUserName());

@@ -40,7 +40,7 @@ public class FrontController extends HttpServlet {
 //		}
 		if (loginrequest != null) {
 			if (loginrequest.equals("login")) {
-				RequestDispatcher rd1 = request.getRequestDispatcher("loginSer");
+				RequestDispatcher rd1 = request.getRequestDispatcher("/loginSer");
 				rd1.forward(request, response);
 			}
 		}

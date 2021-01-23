@@ -24,7 +24,7 @@ public class ContactUsServlet extends HttpServlet {
 		if (session != null) {
 
 			out.print(
-					"<h1 style='float:left;'>Welcome To <spam style='color:white;'>Tech Hut </spam> Mr/Mrs <spam style='color:yellow';>'"
+					"<h1 style='float:left;'>Welcome To <spam style='color:green;'>Tech Hut </spam> Mr/Mrs <spam style='color:orange';>'"
 							+ session.getAttribute("userName") + "'</spam></h1>");
 			RequestDispatcher rd = request.getRequestDispatcher("contactUs.html");
 			rd.include(request, response);
