@@ -3,6 +3,7 @@ package com.dj.services;
 import com.dj.bo.RegistrationBO;
 import com.dj.dto.RegistrationDTO;
 
+import TechHut.javaResort.dao.DAOFactoryClass;
 import TechHut.javaResort.dao.RegistrationDAO;
 import TechHut.javaResort.dao.RegistrationDAOInf;
 
@@ -21,7 +22,7 @@ public class RegistrationService implements RegistrationServiceInf {
 			bo.setPassword(dto.getPassword());
 			bo.setEmail(dto.getEmail());
 			
-			RegistrationDAOInf dao = new RegistrationDAO();
+			RegistrationDAOInf dao = DAOFactoryClass.getRegistrationDAOInfInstance();
 			status = dao.saveRegistration(bo);
 			return status;
 		}

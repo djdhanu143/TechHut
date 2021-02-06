@@ -14,31 +14,24 @@ public class FrontController extends HttpServlet {
 		PrintWriter out = null;
 		String registrationReq = null;
 		String loginrequest = null;
-//		try {
 		out = response.getWriter();
-//		}catch(Exception e){
-//			e.getMessage();
-//		}
-//		out.print("front");
 		response.setContentType("text/html");
 		registrationReq = request.getParameter("submit");
-
 		loginrequest = request.getParameter("button");
-//		try {
+
 		if (registrationReq != null) {
 			if (registrationReq.equals("submit")) {
 				// ServletContext sc = getServletContext();
-				RequestDispatcher rd = request.getRequestDispatcher("/registrationSer");
-				rd.include(request, response);
+				RequestDispatcher rdToRegSer = request.getRequestDispatcher("/registrationSer");
+				rdToRegSer.include(request, response);
+				if ((boolean) request.getAttribute("flag")) {
 
+				} else {
+					RequestDispatcher rdToRegHtml = request.getRequestDispatcher("registrationpage.html");
+					rdToRegHtml.include(request, response);
+				}
 			}
-		}
-//		} catch (ServletException se) {
-//			se.printStackTrace();
-//		} catch (IOException ioe) {
-//			ioe.printStackTrace();
-//		}
-		if (loginrequest != null) {
+		} else if (loginrequest != null) {
 			if (loginrequest.equals("login")) {
 				RequestDispatcher rd1 = request.getRequestDispatcher("/loginSer");
 				rd1.forward(request, response);
