@@ -1,7 +1,7 @@
 package TechHut.javaResort.dao;
 
 public class DAOFactoryClass {
-public static RegistrationDAOInf getRegistrationDAOInfInstance() {
-	return new RegistrationDAO();
-}
+	public static RegistrationDAOInf getRegistrationDAOInfInstance() {
+		return new RegistrationDAO();
+	}
 }
